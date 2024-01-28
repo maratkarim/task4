@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="all.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="Twitter">
+            <p>TWITTER</p>
+        </div>
+        <div class="other">
+            <p>Tweets</p>
+            <form action="login.html" >
+                <button>Login</button>
+            </form>
+            <p>Register</p>
+        </div>
+    </div>
+    <div class="general">
+        <div class="info">
+            <p>Email:</p>
+            <input type="text" name="email" id="email_id">
+        </div>
+        <div class="info">
+            <p>Password:</p>
+            <input type="password" name="password" id="password_id">
+        </div>
+        <div class="btn">
+            <button onclick="signIn()">
+                Sign in
+            </button>
+        </div>
+    </div>
+    <script>
+
+
+        function signIn(){
+            let usersJson = localStorage.getItem("usersKey");
+            let userParse = JSON.parse(usersJson);
+            console.log(userParse);
+            
+            let logins=[
+                {email: "-", password: "-", fullname: "-", country: "USA"}
+            ];
+            let login={};
+
+            for(let i = 0 ; i < userParse.length; i++){
+                if(userParse[i].email == email_id.value &&  userParse[i].password == password_id.value){
+                    alert("Welcome");
+                    //console.log(userParse[i].email + " "+ userParse[i].password);
+                    
+                    login.email = userParse[i].email;
+                    login.password = userParse[i].password;
+                    login.fullName = userParse[i].fullName;
+                    login.country = userParse[i].country;
+                    login.birthdte = userParse[i].birthdate;
+
+                    window.open("profile.html");
+                }
+            }
+            logins.push(login);
+            localStorage.loginsKey = JSON.stringify(logins);
+
+            // console.log(login.email+" "+login.password+" "+login.fullName+" "+login.country+" "+login.birthdte);
+
+            email_id.value='';
+            password_id.value='';
+        }
+    </script>
+</body>
+</html>

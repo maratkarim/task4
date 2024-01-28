@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="all.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="Twitter">
+            <p>TWITTER</p>
+        </div>
+        <div class="other">
+            <p>Tweets</p>
+            <form action="login.html" >
+                <button>Login</button>
+            </form>
+            <p>Register</p>
+        </div>
+    </div>
+    <div class="general">
+        <div class="info">
+            <p>EMAIL:</p>
+            <input type="text" name="email" id="email_id">
+        </div>
+        <div class="info">
+            <p>PASSWORD:</p>
+            <input type="password" name="password" id="password_id">
+        </div>
+        <div class="info">
+            <p>FULL NAME:</p>
+            <input type="text" name="fullName" id="fullName_id">
+        </div>
+        <div class="info">
+            <p>COUNTRY:</p>
+            <select name="country" id="country_id">
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="USA">USA</option>
+                <option value="Russia">Russia</option>
+            </select>
+        </div>
+        <div class="info">
+            <p>BIRTHDATE:</p>
+            <input type="date" id="birthdate_id">
+        </div>
+        <div class="btn">
+            <button onclick="register()">
+                REGISTER
+            </button>
+        </div>
+    </div>
+    <script>
+        let users=[
+            {email: "m_karim@kbtu.kz", password: "12345", fullname: "Karim Marat", country: "USA"}
+        ];
+        let user={};
+        
+        function register(){
+            user.email = email_id.value;
+            user.password = password_id.value;
+            user.fullName = fullName_id.value;
+            user.country = country_id.value;
+            user.birthdate = birthdate_id.value;
+
+            users.push(user);
+
+            localStorage.usersKey = JSON.stringify(users);
+            alert('You are registed! You may continue on login, GOOD LUCK :)');
+            email_id.value='';
+            password_id.value='';
+            fullName_id.value='';
+            country_id.value='';
+            birthdate_id.value='';
+        }
+    </script>
+</body>
+</html>

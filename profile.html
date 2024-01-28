@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="all.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="Twitter">
+            <p>TWITTER</p>
+        </div>
+        <div class="other">
+            <p>Tweets</p>
+            <form action="login.html" >
+                <button>Login</button>
+            </form>
+            <p>Register</p>
+        </div>
+    </div>
+    <!-- <div>
+        <p>EMAIL:</p>
+        <input type="text" id="email_p">
+    </div>
+    <div>
+        <p>FULL NAME:</p>
+        <input type="text" id="fullName_p">
+    </div>
+    <div>
+        <p>COUNTRY:</p>
+        <input type="text" id="country_p">
+    </div>
+    <div>
+        <p>BIRTHDATE:</p>
+        <input type="text" id="birthdate_p">
+    </div> -->
+    <script>
+        let portJson = localStorage.getItem("loginsKey");
+        let portfolioParse = JSON.parse(portJson);
+
+        let div1 = document.createElement('div');
+        div1.innerHTML = '<p>' + portfolioParse[1].email + '</p>';
+        document.body.append(div1);
+
+        let div2 = document.createElement('div');
+        div2.innerHTML = '<p>' + portfolioParse[1].fullName + '</p>';
+        document.body.append(div2);
+
+        let div3 = document.createElement('div');
+        div3.innerHTML = '<p>' + portfolioParse[1].country + '</p>';
+        document.body.append(div3);
+
+        let div4 = document.createElement('div');
+        div4.innerHTML = '<p>' + portfolioParse[1].birthdte + '</p>';
+        document.body.append(div4);
+
+    </script>
+</body>
+</html>
